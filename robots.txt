@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plantified.com/sitemap.xml
