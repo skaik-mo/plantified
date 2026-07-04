@@ -1,0 +1,6 @@
+{
+  "name": "Plantified",
+  "description": "An interactive, premium single-route landing page system for plant lovers to discover their perfect green companion with custom ambient vector animations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

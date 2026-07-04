@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/poppins_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/poppins_medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/poppins_semiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Tomorrow';
+  src: url('./assets/fonts/tomorrow_bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/ubuntu_bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@theme {
+  --font-display: "Ubuntu", sans-serif;
+  --font-heading: "Ubuntu", sans-serif;
+  --font-sans: "Poppins", sans-serif;
+  --font-mono: "Tomorrow", monospace;
+
+  --color-page-bg: #FCFBF8;
+  --color-sage-panel: #E8EFDF;
+  --color-primary-green: #23482A;
+  --color-dark-accent: #112516;
+  --color-muted-sage: #536C59;
+
+  --animate-sway-slow: sway-slow 6s ease-in-out infinite;
+  --animate-sway-medium: sway-medium 4s ease-in-out infinite;
+  --animate-sway-fast: sway-fast 3s ease-in-out infinite;
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes sway-slow {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(1.5deg); }
+  }
+  @keyframes sway-medium {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(2.5deg); }
+  }
+  @keyframes sway-fast {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(4deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+body {
+  background-color: var(--color-page-bg);
+  color: var(--color-dark-accent);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
