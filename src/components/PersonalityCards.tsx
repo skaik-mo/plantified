@@ -1,7 +1,7 @@
 import React from 'react';
-import imgPlant7 from '../assets/images/img_plant7.svg';
-import imgPlant8 from '../assets/images/img_plant8.svg';
-import imgPlant9 from '../assets/images/img_plant9.svg';
+import imgPlant7 from '../assets/images/img_plant7.webp';
+import imgPlant8 from '../assets/images/img_plant8.webp';
+import imgPlant9 from '../assets/images/img_plant9.webp';
 import imgLeafPattern from '../assets/images/img_leaf_pattern.svg';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -36,9 +36,9 @@ export const PersonalityCards = () => {
   ];
 
   return (
-    <section ref={ref} className="w-full pt-[156px] pb-[156px] bg-[#FCF7F2] relative overflow-visible select-none">
+    <section ref={ref} className="w-full pt-20 pb-20 md:pt-[156px] md:pb-[156px] bg-[#FCF7F2] relative overflow-visible select-none">
 
-      <div className="relative mx-[64px] pt-16 pb-[38px] overflow-visible w-auto">
+      <div className="relative mx-6 md:mx-[64px] pt-16 pb-[38px] overflow-visible w-auto">
 
         <div className={`absolute left-0 right-0 bottom-0 top-[250px] pointer-events-none select-none z-0 reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[100ms]`}>
           <svg
@@ -50,11 +50,16 @@ export const PersonalityCards = () => {
           </svg>
         </div>
 
+        <h2 className="sr-only">Find Your Match</h2>
+
         <div className={`absolute left-[-27px] bottom-0 w-[110px] pointer-events-none select-none z-10 hidden lg:block reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[100ms]`}>
           <img
             src={imgLeafPattern}
             className="w-full object-contain"
             alt="Leaf pattern decoration"
+            width={110}
+            height={110}
+            loading="lazy"
           />
         </div>
 
@@ -76,7 +81,10 @@ export const PersonalityCards = () => {
                   <img
                     src={card.image}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
-                    alt={card.heading}
+                    alt={`${card.subheading} (${card.plantType}) - low maintenance desk plant for people who are ${card.heading.toLowerCase().replace('?', '')}`}
+                    width={280}
+                    height={280}
+                    loading="lazy"
                   />
                 </div>
 

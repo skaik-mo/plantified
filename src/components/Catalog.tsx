@@ -9,12 +9,12 @@ import imgWavePattern from '../assets/images/img_wave_pattern.svg';
 import { PrimaryButton } from './PrimaryButton';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-import imgPlantCactus from '../assets/images/img_plant1.svg';
-import imgPlantAloe from '../assets/images/img_plant2.svg';
-import imgPlantSnake from '../assets/images/img_plant3.svg';
-import imgPlantPothos from '../assets/images/img_plant4.svg';
-import imgPlantMonstera from '../assets/images/img_plant5.svg';
-import imgPlantPilea from '../assets/images/img_plant6.svg';
+import imgPlantCactus from '../assets/images/img_plant1.webp';
+import imgPlantAloe from '../assets/images/img_plant2.webp';
+import imgPlantSnake from '../assets/images/img_plant3.webp';
+import imgPlantPothos from '../assets/images/img_plant4.webp';
+import imgPlantMonstera from '../assets/images/img_plant5.webp';
+import imgPlantPilea from '../assets/images/img_plant6.webp';
 
 const getPlantImage = (id: string) => {
   switch (id) {
@@ -28,12 +28,27 @@ const getPlantImage = (id: string) => {
   }
 };
 
-const renderPlantVector = (id: string, sizeClass: string = "w-44 h-44") => {
-  return <img src={getPlantImage(id)} className={`${sizeClass} object-contain`} alt={id} />;
+const renderPlantVector = (
+  id: string,
+  sizeClass: string = "w-44 h-44",
+  altText?: string,
+  width?: number,
+  height?: number
+) => {
+  return (
+    <img
+      src={getPlantImage(id)}
+      className={`${sizeClass} object-contain`}
+      alt={altText || `${id} desk plant`}
+      width={width}
+      height={height}
+      loading="lazy"
+    />
+  );
 };
 
 export const Catalog = () => {
-  const [selectedPlantId, setSelectedPlantId] = useState<string>('monstera');
+  const [selectedPlantId, setSelectedPlantId] = useState<string>('cactus');
   const [ref, isVisible] = useScrollReveal<HTMLDivElement>();
 
   const addToCart = (plant: any) => {
@@ -51,16 +66,26 @@ export const Catalog = () => {
           src={imgWavePattern}
           className="w-full h-full object-contain object-right-top"
           alt="Wave pattern decoration"
+          width={676}
+          height={260}
         />
       </div>
 
-      <div className="w-full pl-[64px] pr-[64px] relative z-10">
+      <div className="w-full px-6 md:px-[64px] pt-16 relative z-10">
+
+        <h2 className="sr-only">Choose Your Green Companion</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           <div className={`lg:col-span-5 flex flex-col items-center justify-center relative p-4 reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[100ms]`}>
             <div className="relative w-full max-w-[380px] aspect-square flex items-center justify-center transition-transform duration-500 hover:scale-102">
-              {renderPlantVector(activePlant.id, "w-[340px] h-[340px] md:w-[380px] md:h-[380px]")}
+              {renderPlantVector(
+                activePlant.id,
+                "w-[340px] h-[340px] md:w-[380px] md:h-[380px]",
+                `${activePlant.name} - low maintenance indoor desk plant`,
+                380,
+                380
+              )}
             </div>
           </div>
 
@@ -75,7 +100,7 @@ export const Catalog = () => {
               </p>
             </div>
 
-            <div className={`flex flex-row items-center gap-10 sm:gap-14 my-8 py-4 reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[400ms]`}>
+            <div className={`flex flex-wrap items-center gap-6 sm:gap-14 my-8 py-4 reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[400ms]`}>
               <div className="flex items-center space-x-2.5">
                 <span className="text-[#23482A] shrink-0 flex items-center justify-center">
                   <img src={icFavouriteOutlineBlack} width={24} height={24} className="w-6 h-6" alt="Lifespan" />
@@ -123,9 +148,19 @@ export const Catalog = () => {
       </div>
 
       <div className={`absolute bottom-0 left-0 right-0 translate-y-1/2 z-20 flex justify-center reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[600ms]`}>
-        <div className="flex items-center justify-center gap-3 px-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 px-4">
           {PLANTS.map((plant) => {
             const isActive = plant.id === selectedPlantId;
+
+            // Dynamically balance visual weight of different aspect ratios (tall/narrow vs wide/circular)
+            let scaleClass = 'scale-[0.95]';
+            if (plant.id === 'cactus' || plant.id === 'monstera') {
+              scaleClass = 'scale-[1.18]';
+            } else if (plant.id === 'snake') {
+              scaleClass = 'scale-[1.25]';
+            } else if (plant.id === 'pothos' || plant.id === 'pilea') {
+              scaleClass = 'scale-[0.88]';
+            }
 
             return (
               <button
@@ -138,8 +173,14 @@ export const Catalog = () => {
                 aria-label={`Select ${plant.name}`}
               >
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="scale-85">
-                    {renderPlantVector(plant.id, "w-16 h-16")}
+                  <div className={scaleClass}>
+                    {renderPlantVector(
+                      plant.id,
+                      "w-16 h-16",
+                      `${plant.name} thumbnail selection preview`,
+                      64,
+                      64
+                    )}
                   </div>
                 </div>
               </button>

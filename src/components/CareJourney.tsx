@@ -39,7 +39,7 @@ export const CareJourney: React.FC = () => {
   ];
 
   return (
-    <section ref={ref} id="journey" className="w-full bg-[#FCF7F2] pt-0 pb-[156px] px-[64px]">
+    <section ref={ref} id="journey" className="w-full bg-[#FCF7F2] pt-0 pb-24 md:pb-[156px] px-6 md:px-[64px]">
       <div className="w-full">
 
         <div className={`text-center max-w-xl mx-auto mb-16 reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[100ms]`}>
@@ -62,7 +62,13 @@ export const CareJourney: React.FC = () => {
                 >
                   <div className="relative mb-5">
                     <div className="w-14 h-14 bg-[#39BB4B]/8 rounded-2xl flex items-center justify-center">
-                      <img src={step.icon} className="w-6 h-6 text-primary-green object-contain" alt={step.title} />
+                      <img 
+                        src={step.icon} 
+                        className="w-6 h-6 text-primary-green object-contain" 
+                        alt={step.title} 
+                        width={24}
+                        height={24}
+                      />
                     </div>
                   </div>
 
@@ -83,7 +89,10 @@ export const CareJourney: React.FC = () => {
                     <img
                       src={idx === 0 ? icSquiggle1 : idx === 1 ? icSquiggle2 : icSquiggle3}
                       className="w-full object-contain"
-                      alt="divider squiggle"
+                      alt=""
+                      aria-hidden="true"
+                      width={120}
+                      height={20}
                     />
                   </div>
                 )}

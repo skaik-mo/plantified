@@ -30,7 +30,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-[#FCFBF8]/95 backdrop-blur-md w-full h-[65px] px-[64px] flex items-center justify-between border-b-[1px] border-[#819E26]/20 relative box-border">
+      <header className="sticky top-0 z-40 bg-[#FCFBF8]/95 backdrop-blur-md w-full h-[65px] px-6 md:px-[64px] flex items-center justify-between border-b-[1px] border-[#819E26]/20 relative box-border">
         <div className="flex items-center h-full">
           <span 
             className="font-ubuntu font-bold text-[24px] text-[#318161] select-none cursor-pointer"
@@ -47,7 +47,7 @@ export const Navbar = () => {
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
                   onClick={(e) => handleLinkClick(item, e)}
-                  className={`relative h-[65px] flex items-center justify-center select-none no-underline ${
+                  className={`relative h-[65px] flex items-center justify-center select-none no-underline whitespace-nowrap ${
                     isActive
                       ? 'font-poppins font-semibold text-[16px] leading-[24px] tracking-[0.5px] text-[#318161]'
                       : 'font-poppins font-medium text-[16px] leading-[24px] tracking-[0.5px] text-[#61665C]'

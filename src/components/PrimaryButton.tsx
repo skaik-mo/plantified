@@ -28,12 +28,12 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
         )}
       </span>
       <div className="bg-white rounded-full w-[40px] h-[40px] flex items-center justify-center box-border shrink-0 transition-transform duration-300 group-hover:-rotate-[40deg]">
-        <img src={iconSrc} className="w-[24px] h-[24px]" alt="Icon" />
+        <img src={iconSrc} className="w-[24px] h-[24px]" alt="" aria-hidden="true" width={24} height={24} />
       </div>
     </>
   );
 
-  const buttonClasses = "group pl-7 pr-[4px] bg-[#346E3C] hover:bg-[#285A2E] text-white font-medium text-[16px] rounded-full text-center inline-flex items-center justify-between gap-3 cursor-pointer h-[48px] box-border transition-all duration-300 shadow-md hover:shadow-lg select-none";
+  const buttonClasses = "group pl-7 pr-[4px] bg-[#346E3C] hover:bg-[#285A2E] text-white font-medium text-[16px] rounded-full text-center inline-flex items-center justify-between gap-3 cursor-pointer h-[48px] box-border transition-all duration-300 shadow-md hover:shadow-lg select-none whitespace-nowrap";
 
   return (
     <button onClick={onClick} className={buttonClasses} id={id}>

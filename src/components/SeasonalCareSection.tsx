@@ -99,14 +99,17 @@ export const SeasonalCareSection: React.FC = () => {
   };
 
   return (
-    <section ref={ref} id="seasonal" className="w-full bg-[#FCF7F2] pt-0 pb-[156px] px-[64px]">
+    <section ref={ref} id="seasonal" className="w-full bg-[#FCF7F2] pt-0 pb-24 md:pb-[156px] px-6 md:px-[64px]">
       <div className="w-full bg-[#EBF1E8] rounded-[32px] p-8 sm:p-12 relative">
 
         <div className={`absolute right-[-32px] top-0 w-36 h-96 select-none pointer-events-none hidden lg:block z-20 reveal-hidden ${isVisible ? 'reveal-visible' : ''} delay-[200ms]`}>
           <img
             src={isStart ? imgHangingPlantStart : imgHangingPlantEnd}
             className="w-full h-full object-contain object-right-top"
-            alt="Hanging plant decoration"
+            alt=""
+            aria-hidden="true"
+            width={144}
+            height={384}
           />
         </div>
 

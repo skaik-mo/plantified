@@ -14,17 +14,19 @@ export default function App() {
 
       <Navbar />
 
-      <HeroSection />
+      <main>
+        <HeroSection />
 
-      <Catalog />
+        <Catalog />
 
-      <PersonalityCards />
+        <PersonalityCards />
 
-      <CareJourney />
+        <CareJourney />
 
-      <SeasonalCareSection />
+        <SeasonalCareSection />
 
-      <Newsletter />
+        <Newsletter />
+      </main>
 
       <Footer />
 

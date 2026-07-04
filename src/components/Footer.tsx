@@ -5,8 +5,8 @@ import icSocialInstagram from '../assets/icons/ic_social_instagram.svg';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#363D37] px-[64px] h-[78px] w-full flex items-center select-none">
-      <div className="w-full flex flex-row items-center justify-between">
+    <footer className="bg-[#363D37] px-6 md:px-[64px] py-6 md:py-0 md:h-[78px] w-full flex items-center select-none">
+      <div className="w-full flex flex-col sm:flex-row gap-4 items-center justify-between">
         
         <p className="font-sans font-medium text-[14px] text-[#FFFFFF]/80">
           © 2026 Plantified, Grown with care.
